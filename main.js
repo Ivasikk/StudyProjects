@@ -25,27 +25,40 @@ let personalMovieBD = {
     privat: false
 };
 
-function rememberMyFilms() {
+// function rememberMyFilms() {
+//     for (let i = 0; i < 3; i++) {
+//         let movieLast = prompt("Один из последних просмотренных фильмов?"),
+//             movieLastMark = prompt("На сколько его оцениваете?");
+//         if (movieLast != null && movieLastMark != null && // null - это отмена ввода '' - пустой Ок)
+//             movieLast != "" && movieLastMark != "" && movieLast.length < 50) {
+//             personalMovieBD.movies[movieLast] = movieLastMark;
+//         } else {
+//             i--;
+//         }
+//     }
+// }
+
+// function detectPersonalLevel() {
+//     if (personalMovieBD.count < 10) {
+//         console.log("Просмотрено мало фильмов");
+//     } else if (personalMovieBD.count >= 10 && personalMovieBD.count < 30) {
+//         console.log("Вы классический зритель");
+//     } else {
+//         console.log("Вы Киноман");
+//     }
+// }
+
+
+function writeYourGenres() {
     for (let i = 0; i < 3; i++) {
-        let movieLast = prompt("Один из последних просмотренных фильмов?"),
-            movieLastMark = prompt("На сколько его оцениваете?");
-        if (movieLast != null && movieLastMark != null && // null - это отмена ввода '' - пустой Ок)
-            movieLast != "" && movieLastMark != "" && movieLast.length < 50) {
-            personalMovieBD.movies[movieLast] = movieLastMark;
-        } else {
-            i--;
-        }
+        let a = i;
+        personalMovieBD.genres[i] = prompt(`Ваш любимый жанр №${++a}?`);
     }
 }
-
-console.log(personalMovieBD);
-
-function detectPersonalLevel() {
-    if (personalMovieBD.count < 10) {
-        console.log("Просмотрено мало фильмов");
-    } else if (personalMovieBD.count >= 10 && personalMovieBD.count < 30) {
-        console.log("Вы классический зритель");
-    } else {
-        console.log("Вы Киноман");
+writeYourGenres();
+function showMyBd() {
+    if (personalMovieBD.privat == false) {
+        console.log(personalMovieBD);
     }
 }
+showMyBd();
